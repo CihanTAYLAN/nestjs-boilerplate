@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{title}}</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stoplight Elements Styles -->
+    <link rel="stylesheet" href="/public/doc/stoplight.min.css"/>
+    
+    <!-- Custom Modern Styles -->
+    <link rel="stylesheet" href="/public/api-doc/style.css"/>
+    
+    <link rel="icon" href="/public/favicon.png" type="image/png">
+</head>
+<body class="dark-theme">
+    <header class="api-header">
+        <div class="header-content">
+            <div class="logo-area">
+                <img src="/public/favicon.png" alt="Logo" class="mini-logo">
+                <span class="app-name">NestJS Boilerplate <span class="highlight">API Docs</span></span>
+            </div>
+            
+            <nav class="category-nav">
+                <ul class="nav-menu" id="nav-menu">
+                    {{#each categories}}
+                        <li class="nav-item {{#if (eq this ../defaultCategory)}}active{{/if}}" 
+                            onclick="window.apiDocUtils.changeCategory('{{this}}', this)">
+                            {{this}}
+                        </li>
+                    {{/each}}
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="api-container">
+        <elements-api 
+            id="api-docs" 
+            data-theme="dark" 
+            apiDescriptionUrl="/api/v1/doc/swagger-doc-json/{{defaultCategory}}" 
+            router="hash" 
+            layout="sidebar"
+            hideExport="false"
+        />
+    </main>
+
+    <!-- Scripts -->
+    <script src="/public/doc/stoplight.min.js"></script>
+    <script src="/public/doc/jquery.min.js"></script>
+    <script src="/public/api-doc/script.js"></script>
+    
+    <script>
+        // Inline helper for category changes if needed immediately
+        document.addEventListener('DOMContentLoaded', () => {
+             console.log('API Documentation Loaded');
+        });
+    </script>
+</body>
+</html>

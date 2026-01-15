@@ -1,0 +1,21 @@
+// ==================== AUDIT LOG ====================
+
+model AuditLog {
+  id           String   @id @default(uuid()) @db.Uuid
+  action       String
+  ipAddress    String?  @map("ip_address")
+  userAgent    String?  @map("user_agent")
+  requestData  Json?    @map("request_data")
+  responseData Json?    @map("response_data")
+  statusCode   Int?     @map("status_code")
+  errorMessage String?  @map("error_message") @db.Text
+  duration     Int?     @map("duration_ms")
+  metadata     Json?    @map("metadata")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  // Relations
+  user   User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+  userId String? @map("user_id") @db.Uuid
+
+  @@map("audit_logs")
+}

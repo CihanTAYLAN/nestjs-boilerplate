@@ -1,0 +1,21 @@
+{{#> layouts/main}}
+<h1>Verify your email</h1>
+
+<p>Enter this verification code to complete your registration:</p>
+
+<div style="text-align: center; margin: 32px 0;">
+  <div style="font-size: 32px; font-weight: 800; letter-spacing: 0.25em; color: #111827; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; background: #f9fafb; padding: 16px; border-radius: 12px; display: inline-block; border: 1px solid #e5e7eb;">
+    {{code}}
+  </div>
+</div>
+
+<p style="text-align: center; color: #ef4444; font-size: 14px; font-weight: 500;">
+  Expires in {{ expiresIn }} minutes
+</p>
+
+<div class="divider"></div>
+
+<p style="margin-bottom: 0; font-size: 14px; color: #6b7280; text-align: center;">
+  If you didn't request this code, you can safely ignore this email.
+</p>
+{{/layouts/main}}

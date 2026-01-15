@@ -1,0 +1,6 @@
+// ==================== ENUMS ====================
+
+enum ExampleEnum {
+  EXAMPLE1
+  EXAMPLE2
+}
